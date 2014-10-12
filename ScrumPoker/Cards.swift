@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class Cards: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var ClipView: UIView!
@@ -14,7 +15,7 @@ class Cards: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var background: UIImageView!
     
     var cardIsFullScreen = false
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.board.delegate = self
@@ -61,13 +62,6 @@ class Cards: UIViewController, UIScrollViewDelegate {
                 self.board.scrollEnabled = false
                 
             }, nil)
-            
-            
-            //currentCard?.transform = CGAffineTransformMakeScale(1.6, 1.6)
-            //currentCard?.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-            //currentCard?.layer.transform = CATransform3DMakeScale(1.6, 1.6, 1)
-            //currentCard?.layer.transform = CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)
-            
         } else {
             UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
                 currentCard?.transform = CGAffineTransformMakeScale(1, 1)
@@ -99,25 +93,22 @@ class Cards: UIViewController, UIScrollViewDelegate {
     */
     func createCards() {
         // Get screen sizes
-        var screenWidth = Int(UIScreen.mainScreen().applicationFrame.size.width)
-        var screenHeight = Int(UIScreen.mainScreen().applicationFrame.size.height)
+        var screenWidth = CGFloat(UIScreen.mainScreen().applicationFrame.size.width)
+        var screenHeight = CGFloat(UIScreen.mainScreen().applicationFrame.size.height)
         
         
         // Settings
         let numberOfCards = 10
-        let cardMargin = 20
-        let cardWidth = (screenWidth / 2) + cardMargin
-        let cardHeight = Int(Float(cardWidth) * 1.5)
+        let cardMargin: CGFloat = 20
+        let cardWidth: CGFloat = (screenWidth / 2) + cardMargin
+        let cardHeight: CGFloat = cardWidth * 1.5
         
-        NSLog(String(cardWidth))
-        NSLog(String(cardHeight))
-        
-        let liipGreen = UIColor(red: 0.431, green: 0.651, blue: 0.267, alpha: 1)
-        
-        
-        var boardWidth = (numberOfCards * cardWidth) + ((numberOfCards) * cardMargin)
+        // Calculate the board width:
+        var boardWidth: CGFloat = (CGFloat(numberOfCards) * (cardWidth + cardMargin))
 
-        // Init the UIScrollView container
+        
+        
+        // Init the container for the custom UIScrollView
         
         ClipView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: cardHeight)
         ClipView.center = view.center
@@ -133,37 +124,23 @@ class Cards: UIViewController, UIScrollViewDelegate {
         board.tag = numberOfCards
         
         
-        var cardFrame : CGRect = CGRectMake(0, 0, CGFloat(cardWidth), CGFloat(cardHeight))
-        
         for index in 0...numberOfCards - 1 {
-            var card = UIView()
+            // Instantiate new CardView
+            var card = CardView(index: index, height: cardHeight, width: cardWidth,
+                                margin: cardMargin, text: String(index))
 
-            var currentXposition = (index * cardWidth) + index * cardMargin + (cardMargin / 2)
-            card.bounds = cardFrame
+            //Calculate where to put the next card and set the origin
+            var currentXposition = (CGFloat(index) * cardWidth) + CGFloat(index) * cardMargin + (cardMargin / 2)
             card.frame.origin = CGPoint(x: currentXposition, y: 0)
-            card.layer.cornerRadius = 14
-            card.backgroundColor = UIColor.whiteColor()
-            
-            card.layer.shadowColor = UIColor.blackColor().CGColor
-            card.layer.shadowOffset = CGSize(width: 0, height: 0)
-            card.layer.shadowOpacity = 0.5
-            card.layer.shadowRadius = 2
-            
-            card.tag = index
-            /*
-            var number = UILabel(frame: CGRectMake(0, 0, CGFloat(cardWidth), 100))
-            card.addSubview(number)
-            number.center.y = card.center.y
-            number.textAlignment = NSTextAlignment.Center
-            number.text = String(index)
-            number.font = UIFont(name: "LiipEticaBd", size: 100)
-            number.textColor = liipGreen
-            */
+    
+            // Add a TapGestureRecognizer to the card
             var tapGesture = UITapGestureRecognizer(target: self, action: "handleCardTap:")
             card.addGestureRecognizer(tapGesture)
             
+            
             board.addSubview(card)
         }
+        
         
         ClipView.addSubview(board)
         view.addSubview(ClipView)

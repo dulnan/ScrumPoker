@@ -9,15 +9,9 @@
 import UIKit
 
 class BoardUIScrollView: UIScrollView, UIScrollViewDelegate {
-
     
     override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
         return true
     }
-
-    func scrollViewDidScroll(scrollView: BoardUIScrollView) {
-        NSLog("na jungs")
-    }
-    
 
 }
