@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		310BB07C19E16B7400C176FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BB07B19E16B7400C176FE /* AppDelegate.swift */; };
+		310BB08119E16B7400C176FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 310BB07F19E16B7400C176FE /* Main.storyboard */; };
+		310BB08319E16B7400C176FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 310BB08219E16B7400C176FE /* Images.xcassets */; };
+		310BB08619E16B7400C176FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310BB08419E16B7400C176FE /* LaunchScreen.xib */; };
+		310BB09219E16B7400C176FE /* ScrumPokerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BB09119E16B7400C176FE /* ScrumPokerTests.swift */; };
+		310BB09C19E1744C00C176FE /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BB09B19E1744C00C176FE /* Cards.swift */; };
+		3155461619E4999A00C176FE /* LFT_Etica_Book_Liip.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3155461519E4997700C176FE /* LFT_Etica_Book_Liip.otf */; };
+		3155461819E49A6900C176FE /* LFT_Etica_Bold_Liip.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3155461719E49A6900C176FE /* LFT_Etica_Bold_Liip.otf */; };
+		3155461A19E49A7A00C176FE /* LFT_Etica_Semibold_Liip.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3155461919E49A7A00C176FE /* LFT_Etica_Semibold_Liip.otf */; };
+		3163F81119E5BCAB00C176FE /* BoardUIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3163F81019E5BCAB00C176FE /* BoardUIScrollView.swift */; };
+		318490B919EAF5FB00C176FE /* CardUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318490B819EAF5FB00C176FE /* CardUIView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		310BB08C19E16B7400C176FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 310BB06E19E16B7400C176FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 310BB07519E16B7400C176FE;
+			remoteInfo = ScrumPoker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		310BB07619E16B7400C176FE /* ScrumPoker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrumPoker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		310BB07A19E16B7400C176FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		310BB07B19E16B7400C176FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		310BB08019E16B7400C176FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		310BB08219E16B7400C176FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		310BB08519E16B7400C176FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		310BB08B19E16B7400C176FE /* ScrumPokerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrumPokerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		310BB09019E16B7400C176FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		310BB09119E16B7400C176FE /* ScrumPokerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumPokerTests.swift; sourceTree = "<group>"; };
+		310BB09B19E1744C00C176FE /* Cards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		3155461519E4997700C176FE /* LFT_Etica_Book_Liip.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LFT_Etica_Book_Liip.otf; sourceTree = "<group>"; };
+		3155461719E49A6900C176FE /* LFT_Etica_Bold_Liip.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LFT_Etica_Bold_Liip.otf; sourceTree = "<group>"; };
+		3155461919E49A7A00C176FE /* LFT_Etica_Semibold_Liip.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LFT_Etica_Semibold_Liip.otf; sourceTree = "<group>"; };
+		3163F81019E5BCAB00C176FE /* BoardUIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardUIScrollView.swift; sourceTree = "<group>"; };
+		318490B819EAF5FB00C176FE /* CardUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardUIView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		310BB07319E16B7400C176FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		310BB08819E16B7400C176FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		310BB06D19E16B7400C176FE = {
+			isa = PBXGroup;
+			children = (
+				318490B819EAF5FB00C176FE /* CardUIView.xib */,
+				310BB07819E16B7400C176FE /* ScrumPoker */,
+				310BB08E19E16B7400C176FE /* ScrumPokerTests */,
+				310BB07719E16B7400C176FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		310BB07719E16B7400C176FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				310BB07619E16B7400C176FE /* ScrumPoker.app */,
+				310BB08B19E16B7400C176FE /* ScrumPokerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		310BB07819E16B7400C176FE /* ScrumPoker */ = {
+			isa = PBXGroup;
+			children = (
+				3155461319E4990F00C176FE /* Ressources */,
+				310BB07B19E16B7400C176FE /* AppDelegate.swift */,
+				310BB09B19E1744C00C176FE /* Cards.swift */,
+				3163F81019E5BCAB00C176FE /* BoardUIScrollView.swift */,
+				310BB07F19E16B7400C176FE /* Main.storyboard */,
+				310BB08219E16B7400C176FE /* Images.xcassets */,
+				310BB08419E16B7400C176FE /* LaunchScreen.xib */,
+				310BB07919E16B7400C176FE /* Supporting Files */,
+			);
+			path = ScrumPoker;
+			sourceTree = "<group>";
+		};
+		310BB07919E16B7400C176FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				310BB07A19E16B7400C176FE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		310BB08E19E16B7400C176FE /* ScrumPokerTests */ = {
+			isa = PBXGroup;
+			children = (
+				310BB09119E16B7400C176FE /* ScrumPokerTests.swift */,
+				310BB08F19E16B7400C176FE /* Supporting Files */,
+			);
+			path = ScrumPokerTests;
+			sourceTree = "<group>";
+		};
+		310BB08F19E16B7400C176FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				310BB09019E16B7400C176FE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3155461319E4990F00C176FE /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				3155461919E49A7A00C176FE /* LFT_Etica_Semibold_Liip.otf */,
+				3155461719E49A6900C176FE /* LFT_Etica_Bold_Liip.otf */,
+				3155461519E4997700C176FE /* LFT_Etica_Book_Liip.otf */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		310BB07519E16B7400C176FE /* ScrumPoker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 310BB09519E16B7400C176FE /* Build configuration list for PBXNativeTarget "ScrumPoker" */;
+			buildPhases = (
+				310BB07219E16B7400C176FE /* Sources */,
+				310BB07319E16B7400C176FE /* Frameworks */,
+				310BB07419E16B7400C176FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScrumPoker;
+			productName = ScrumPoker;
+			productReference = 310BB07619E16B7400C176FE /* ScrumPoker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		310BB08A19E16B7400C176FE /* ScrumPokerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 310BB09819E16B7400C176FE /* Build configuration list for PBXNativeTarget "ScrumPokerTests" */;
+			buildPhases = (
+				310BB08719E16B7400C176FE /* Sources */,
+				310BB08819E16B7400C176FE /* Frameworks */,
+				310BB08919E16B7400C176FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				310BB08D19E16B7400C176FE /* PBXTargetDependency */,
+			);
+			name = ScrumPokerTests;
+			productName = ScrumPokerTests;
+			productReference = 310BB08B19E16B7400C176FE /* ScrumPokerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		310BB06E19E16B7400C176FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Jan Hug";
+				TargetAttributes = {
+					310BB07519E16B7400C176FE = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = V475DM3GTF;
+					};
+					310BB08A19E16B7400C176FE = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 310BB07519E16B7400C176FE;
+					};
+				};
+			};
+			buildConfigurationList = 310BB07119E16B7400C176FE /* Build configuration list for PBXProject "ScrumPoker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 310BB06D19E16B7400C176FE;
+			productRefGroup = 310BB07719E16B7400C176FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				310BB07519E16B7400C176FE /* ScrumPoker */,
+				310BB08A19E16B7400C176FE /* ScrumPokerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		310BB07419E16B7400C176FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				318490B919EAF5FB00C176FE /* CardUIView.xib in Resources */,
+				3155461A19E49A7A00C176FE /* LFT_Etica_Semibold_Liip.otf in Resources */,
+				3155461619E4999A00C176FE /* LFT_Etica_Book_Liip.otf in Resources */,
+				310BB08119E16B7400C176FE /* Main.storyboard in Resources */,
+				3155461819E49A6900C176FE /* LFT_Etica_Bold_Liip.otf in Resources */,
+				310BB08619E16B7400C176FE /* LaunchScreen.xib in Resources */,
+				310BB08319E16B7400C176FE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		310BB08919E16B7400C176FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		310BB07219E16B7400C176FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				310BB09C19E1744C00C176FE /* Cards.swift in Sources */,
+				3163F81119E5BCAB00C176FE /* BoardUIScrollView.swift in Sources */,
+				310BB07C19E16B7400C176FE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		310BB08719E16B7400C176FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				310BB09219E16B7400C176FE /* ScrumPokerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		310BB08D19E16B7400C176FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 310BB07519E16B7400C176FE /* ScrumPoker */;
+			targetProxy = 310BB08C19E16B7400C176FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		310BB07F19E16B7400C176FE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				310BB08019E16B7400C176FE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		310BB08419E16B7400C176FE /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				310BB08519E16B7400C176FE /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		310BB09319E16B7400C176FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		310BB09419E16B7400C176FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		310BB09619E16B7400C176FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ScrumPoker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = ScrumPoker;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		310BB09719E16B7400C176FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ScrumPoker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = ScrumPoker;
+			};
+			name = Release;
+		};
+		310BB09919E16B7400C176FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ScrumPokerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = ScrumPokerTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScrumPoker.app/ScrumPoker";
+			};
+			name = Debug;
+		};
+		310BB09A19E16B7400C176FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ScrumPokerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = ScrumPokerTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScrumPoker.app/ScrumPoker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		310BB07119E16B7400C176FE /* Build configuration list for PBXProject "ScrumPoker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				310BB09319E16B7400C176FE /* Debug */,
+				310BB09419E16B7400C176FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		310BB09519E16B7400C176FE /* Build configuration list for PBXNativeTarget "ScrumPoker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				310BB09619E16B7400C176FE /* Debug */,
+				310BB09719E16B7400C176FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		310BB09819E16B7400C176FE /* Build configuration list for PBXNativeTarget "ScrumPokerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				310BB09919E16B7400C176FE /* Debug */,
+				310BB09A19E16B7400C176FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 310BB06E19E16B7400C176FE /* Project object */;
+}
