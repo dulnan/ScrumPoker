@@ -15,39 +15,70 @@ class CardView: UIView {
     var width: CGFloat!
     var margin: CGFloat!
     var text: String!
+    var style: CardViewStyle!
+    
+    
+    
+    
+    //
+    //  convenience init with sizing, margin and the string
+    //
     
     convenience init(index: Int, height: CGFloat, width: CGFloat, margin: CGFloat, text: String) {
         var frame = CGRect(x: 0, y: 0, width: width, height: height)
         
         self.init(frame: frame)
         self.bounds = frame
-        
-        self.layer.cornerRadius = 14
-        self.backgroundColor = UIColor.whiteColor()
-        
-        self.layer.shadowColor = UIColor.blackColor().CGColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowRadius = 2
-        
         self.tag = index
         
-        
-        // Styling
-        var number = UILabel(frame: CGRectMake(0, 0, width, 100))
-        self.addSubview(number)
-        number.center.y = self.center.y
-        number.textAlignment = NSTextAlignment.Center
-        number.text = String(index)
-        number.font = UIFont(name: "LiipEticaBd", size: 100)
-        number.textColor = UIColor(red: 0.431, green: 0.651, blue: 0.267, alpha: 1)
-        
+        self.style = CardViewStyle(styleIdentifier: "liip")
         self.index = index
         self.height = height
         self.width = width
         self.text = text
+        
+        setCardStyle()
+        addLabelsToCard(text, color: self.style.textColor)
 
     }
+    
+    
+    
+    //
+    // sets the style of the card
+    //
+    
+    func setCardStyle() {
+        layer.cornerRadius = style.cornerRadius
+        backgroundColor = style.backgroundColor
+        
+        if (style.shadow == true) {
+            layer.shadowColor = UIColor.blackColor().CGColor
+            layer.shadowOffset = CGSize(width: 0, height: 0)
+            layer.shadowOpacity = 0.5
+            layer.shadowRadius = 2
+        }
+    }
+    
+    
+    //
+    // adds the labels to the CardView
+    //
+    
+    func addLabelsToCard(text: String, color: UIColor) {
+        var label = UILabel(frame: CGRectMake(0, 0, self.width, 100))
+        label.center.y = self.center.y
+        label.textAlignment = NSTextAlignment.Center
+        label.text = String(self.text)
+        label.font = UIFont(name: style.font, size: 100)
+        label.textColor = style.textColor
+        
+        self.addSubview(label)
+    }
+    
+    
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
