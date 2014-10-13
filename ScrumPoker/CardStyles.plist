@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>liip</key>
+	<dict>
+		<key>backgroundcolor</key>
+		<array>
+			<integer>255</integer>
+			<string>255</string>
+			<string>255</string>
+		</array>
+		<key>textcolor</key>
+		<array>
+			<string>110</string>
+			<string>166</string>
+			<string>68</string>
+		</array>
+		<key>font</key>
+		<string>LiipEticaBd</string>
+		<key>shadow</key>
+		<true/>
+	</dict>
+</dict>
+</plist>
