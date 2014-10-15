@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="VYA-yD-bsa" userLabel="ClipView">
+                            <view contentMode="scaleToFill" id="VYA-yD-bsa" userLabel="boardContainer">
                                 <rect key="frame" x="0.0" y="142" width="320" height="284"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -31,7 +31,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="ClipView" destination="VYA-yD-bsa" id="YaB-Lr-3Bx"/>
+                        <outlet property="boardContainer" destination="VYA-yD-bsa" id="YaB-Lr-3Bx"/>
                         <outlet property="background" destination="kDR-OQ-HVn" id="kv5-G9-cGz"/>
                         <outlet property="board" destination="EMk-sK-6vR" id="ePp-1m-xfZ"/>
                     </connections>
