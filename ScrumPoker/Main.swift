@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class Cards: UIViewController, UIScrollViewDelegate {
+class Main: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var ClipView: UIView!
     @IBOutlet weak var board: BoardUIScrollView!
     @IBOutlet weak var background: UIImageView!
