@@ -17,9 +17,11 @@
 		3155461819E49A6900C176FE /* LFT_Etica_Bold_Liip.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3155461719E49A6900C176FE /* LFT_Etica_Bold_Liip.otf */; };
 		3155461A19E49A7A00C176FE /* LFT_Etica_Semibold_Liip.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3155461919E49A7A00C176FE /* LFT_Etica_Semibold_Liip.otf */; };
 		3163F81119E5BCAB00C176FE /* BoardUIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3163F81019E5BCAB00C176FE /* BoardUIScrollView.swift */; };
-		317AB0CD19EB23B500C176FE /* defaultCards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 317AB0CC19EB23B500C176FE /* defaultCards.plist */; };
+		317AB0CD19EB23B500C176FE /* CardDecks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 317AB0CC19EB23B500C176FE /* CardDecks.plist */; };
 		317AB0CF19EB31FA00C176FE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317AB0CE19EB31FA00C176FE /* CardView.swift */; };
 		3190D8C119EB1BFD00C176FE /* CardsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3190D8BF19EB1BFD00C176FE /* CardsModel.xcdatamodeld */; };
+		31CF0E9E19EC3E9200C176FE /* CardViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CF0E9D19EC3E9200C176FE /* CardViewStyle.swift */; };
+		31CF0EA019EC4D9800C176FE /* CardStyles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31CF0E9F19EC4D9800C176FE /* CardStyles.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +49,11 @@
 		3155461719E49A6900C176FE /* LFT_Etica_Bold_Liip.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LFT_Etica_Bold_Liip.otf; sourceTree = "<group>"; };
 		3155461919E49A7A00C176FE /* LFT_Etica_Semibold_Liip.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LFT_Etica_Semibold_Liip.otf; sourceTree = "<group>"; };
 		3163F81019E5BCAB00C176FE /* BoardUIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardUIScrollView.swift; sourceTree = "<group>"; };
-		317AB0CC19EB23B500C176FE /* defaultCards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultCards.plist; sourceTree = "<group>"; };
+		317AB0CC19EB23B500C176FE /* CardDecks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardDecks.plist; sourceTree = "<group>"; };
 		317AB0CE19EB31FA00C176FE /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		3190D8C019EB1BFD00C176FE /* CardsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardsModel.xcdatamodel; sourceTree = "<group>"; };
+		31CF0E9D19EC3E9200C176FE /* CardViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewStyle.swift; sourceTree = "<group>"; };
+		31CF0E9F19EC4D9800C176FE /* CardStyles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardStyles.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,14 +98,16 @@
 				3155461319E4990F00C176FE /* Ressources */,
 				310BB07B19E16B7400C176FE /* AppDelegate.swift */,
 				310BB09B19E1744C00C176FE /* Cards.swift */,
-				317AB0CC19EB23B500C176FE /* defaultCards.plist */,
+				317AB0CE19EB31FA00C176FE /* CardView.swift */,
+				31CF0E9D19EC3E9200C176FE /* CardViewStyle.swift */,
 				3163F81019E5BCAB00C176FE /* BoardUIScrollView.swift */,
 				310BB07F19E16B7400C176FE /* Main.storyboard */,
-				3190D8BF19EB1BFD00C176FE /* CardsModel.xcdatamodeld */,
 				310BB08419E16B7400C176FE /* LaunchScreen.xib */,
+				317AB0CC19EB23B500C176FE /* CardDecks.plist */,
+				31CF0E9F19EC4D9800C176FE /* CardStyles.plist */,
+				3190D8BF19EB1BFD00C176FE /* CardsModel.xcdatamodeld */,
 				310BB08219E16B7400C176FE /* Images.xcassets */,
 				310BB07919E16B7400C176FE /* Supporting Files */,
-				317AB0CE19EB31FA00C176FE /* CardView.swift */,
 			);
 			path = ScrumPoker;
 			sourceTree = "<group>";
@@ -222,7 +228,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				317AB0CD19EB23B500C176FE /* defaultCards.plist in Resources */,
+				31CF0EA019EC4D9800C176FE /* CardStyles.plist in Resources */,
+				317AB0CD19EB23B500C176FE /* CardDecks.plist in Resources */,
 				3155461A19E49A7A00C176FE /* LFT_Etica_Semibold_Liip.otf in Resources */,
 				3155461619E4999A00C176FE /* LFT_Etica_Book_Liip.otf in Resources */,
 				310BB08119E16B7400C176FE /* Main.storyboard in Resources */,
@@ -250,6 +257,7 @@
 				3190D8C119EB1BFD00C176FE /* CardsModel.xcdatamodeld in Sources */,
 				3163F81119E5BCAB00C176FE /* BoardUIScrollView.swift in Sources */,
 				310BB07C19E16B7400C176FE /* AppDelegate.swift in Sources */,
+				31CF0E9E19EC3E9200C176FE /* CardViewStyle.swift in Sources */,
 				317AB0CF19EB31FA00C176FE /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

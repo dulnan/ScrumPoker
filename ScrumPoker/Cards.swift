@@ -14,11 +14,18 @@ class Cards: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var board: BoardUIScrollView!
     @IBOutlet weak var background: UIImageView!
     
-    var cardIsFullScreen = false
-        
+    var cardIsFullScreen: Bool!
+    var numberOfCards: Int!
+    var currentCardIndex: Int! = 1
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.board.delegate = self
+        
+        self.cardIsFullScreen = false
+        self.numberOfCards = 0
+        
         createCards()
     }
     
@@ -28,64 +35,14 @@ class Cards: UIViewController, UIScrollViewDelegate {
         background.transform = CGAffineTransformMakeTranslation(offset, 0)
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func scrollViewDidEndDecelerating(scrollView: BoardUIScrollView) {
+        currentCardIndex = Int(scrollView.contentOffset.x / scrollView.bounds.size.width) + 1;
     }
     
-    func handleCardTap(recognizer: UITapGestureRecognizer!) {
-        var currentCard = recognizer.view
-        var currentCardIndex = Int(board.contentOffset.x / board.bounds.size.width);
-        var numberOfCards = self.board.tag - 1
-        NSLog("currentCardIndex: " + currentCardIndex.description)
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 
-        board.bringSubviewToFront(currentCard!)
-        
-        currentCard?.layer.transform.m34 = 1.0 / -280
-        
-        if (cardIsFullScreen == false) {
-            UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
-                currentCard?.transform = CGAffineTransformMakeScale(1.5, 1.5)
-                if (currentCardIndex != 0) {
-                    var prevCard = self.board.viewWithTag(currentCardIndex - 1)
-                    prevCard?.transform = CGAffineTransformMakeScale(0.8, 0.8)
-                    prevCard?.alpha = 0
-                }
-                if (currentCardIndex < numberOfCards) {
-                    var nextCard = self.board.viewWithTag(currentCardIndex + 1)
-                    nextCard?.transform = CGAffineTransformMakeScale(0.8, 0.8)
-                    nextCard?.alpha = 0
-                }
-                
-                self.background.alpha = 0.8
-                self.cardIsFullScreen = true
-                self.board.scrollEnabled = false
-                
-            }, nil)
-        } else {
-            UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
-                currentCard?.transform = CGAffineTransformMakeScale(1, 1)
-                if (currentCardIndex > 0) {
-                    var prevCard = self.board.viewWithTag(currentCardIndex - 1)
-                    prevCard?.transform = CGAffineTransformMakeScale(1, 1)
-                    prevCard?.alpha = 1
-                }
-                
-                if (currentCardIndex < self.board.subviews.count) {
-                    var nextCard = self.board.viewWithTag(currentCardIndex + 1)
-                    nextCard?.transform = CGAffineTransformMakeScale(1, 1)
-                    nextCard?.alpha = 1
-                }
-                self.background.alpha = 1
-                self.cardIsFullScreen = false
-                self.board.scrollEnabled = true
-                
-            }, nil)
-        }
-    
-        
-        
     }
+    
     
     
     /*
@@ -98,14 +55,14 @@ class Cards: UIViewController, UIScrollViewDelegate {
         
         
         // Settings
-        let numberOfCards = 10
+        self.numberOfCards = 10
         let cardMargin: CGFloat = 20
         let cardWidth: CGFloat = (screenWidth / 2) + cardMargin
         let cardHeight: CGFloat = cardWidth * 1.5
         
         // Calculate the board width:
         var boardWidth: CGFloat = (CGFloat(numberOfCards) * (cardWidth + cardMargin))
-
+        
         
         
         // Init the container for the custom UIScrollView
@@ -121,18 +78,15 @@ class Cards: UIViewController, UIScrollViewDelegate {
         board.contentSize = CGSize(width: boardWidth, height: cardHeight)
         board.center.x = ClipView.center.x
         
-        board.tag = numberOfCards
-        
-        
         for index in 0...numberOfCards - 1 {
             // Instantiate new CardView
             var card = CardView(index: index, height: cardHeight, width: cardWidth,
-                                margin: cardMargin, text: String(index))
-
+                margin: cardMargin, text: String(index + 1))
+            
             //Calculate where to put the next card and set the origin
             var currentXposition = (CGFloat(index) * cardWidth) + CGFloat(index) * cardMargin + (cardMargin / 2)
             card.frame.origin = CGPoint(x: currentXposition, y: 0)
-    
+            
             // Add a TapGestureRecognizer to the card
             var tapGesture = UITapGestureRecognizer(target: self, action: "handleCardTap:")
             card.addGestureRecognizer(tapGesture)
@@ -141,9 +95,77 @@ class Cards: UIViewController, UIScrollViewDelegate {
             board.addSubview(card)
         }
         
-        
         ClipView.addSubview(board)
         view.addSubview(ClipView)
+    }
+    
+    
+    
+    
+    
+    
+    func handleCardTap(recognizer: UITapGestureRecognizer!) {
+        var currentCard = recognizer.view
+        
+        if (cardIsFullScreen == false) {
+            cardTransition("zoomIn")
+        } else {
+           cardTransition("zoomOut")
+        }
+
+    }
+    
+    
+    
+    
+    
+    func cardTransition(action: String) {
+        var currentScale: CGFloat
+        var siblingScale: CGFloat
+        var siblingAlpha: CGFloat
+        var backgroundAlpha: CGFloat
+        
+        var currentCard: UIView = self.board.viewWithTag(currentCardIndex)!
+        
+        if (action == "zoomIn") {
+            currentScale = 1.5
+            siblingScale = 0.8
+            siblingAlpha = 0.0
+            backgroundAlpha = 0.5
+            cardIsFullScreen = true
+            board.scrollEnabled = false
+            board.bringSubviewToFront(currentCard)
+        } else {
+            currentScale = 1.0
+            siblingScale = 1.0
+            siblingAlpha = 1.0
+            backgroundAlpha = 1.0
+            cardIsFullScreen = false
+            board.scrollEnabled = true
+        }
+        
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
+            currentCard.transform = CGAffineTransformMakeScale(currentScale, currentScale)
+            
+            if (self.currentCardIndex > 1) {
+                var prevCard: UIView = self.board.viewWithTag(self.currentCardIndex - 1)!
+                prevCard.transform = CGAffineTransformMakeScale(siblingScale, siblingScale)
+                prevCard.alpha = siblingAlpha
+            }
+            
+            if (self.currentCardIndex < self.numberOfCards) {
+                var nextCard: UIView = self.board.viewWithTag(self.currentCardIndex + 1)!
+                nextCard.transform = CGAffineTransformMakeScale(siblingScale, siblingScale)
+                nextCard.alpha = siblingAlpha
+            }
+            
+            self.background.alpha = backgroundAlpha
+            
+        }, nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
 

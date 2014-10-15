@@ -29,10 +29,10 @@ class CardView: UIView {
         
         self.init(frame: frame)
         self.bounds = frame
-        self.tag = index
+        self.tag = index + 1
         
         self.style = CardViewStyle(styleIdentifier: "liip")
-        self.index = index
+        self.index = index + 1
         self.height = height
         self.width = width
         self.text = text
