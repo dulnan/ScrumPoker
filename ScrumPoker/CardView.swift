@@ -70,10 +70,35 @@ class CardView: UIView {
         label.center.y = self.center.y
         label.textAlignment = NSTextAlignment.Center
         label.text = String(self.text)
-        label.font = UIFont(name: style.font, size: 100)
+        label.font = UIFont(name: style.font, size: 80)
         label.textColor = style.textColor
         
         self.addSubview(label)
+        
+        
+        
+        label = UILabel(frame: CGRectMake(10, 5, self.width, 40))
+        label.textAlignment = NSTextAlignment.Left
+        label.text = String(self.text)
+        label.font = UIFont(name: style.font, size: 30)
+        label.textColor = style.textColor
+        label.alpha = 0.5
+        self.addSubview(label)
+        
+        
+        
+        
+        
+        label = UILabel(frame: CGRectMake(-10, self.height - 45, self.width, 40))
+        label.textAlignment = NSTextAlignment.Left
+        label.text = String(self.text)
+        label.font = UIFont(name: style.font, size: 30)
+        label.textColor = style.textColor
+        
+        label.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        label.alpha = 0.5
+        self.addSubview(label)
+        
     }
     
     
