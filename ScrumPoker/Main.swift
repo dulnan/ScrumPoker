@@ -77,9 +77,13 @@ class Main: UIViewController, UIScrollViewDelegate {
     This generates the cards and adds them to the UIScrollView board
     */
     func createCards() {
+        // Load the CardDecks Plist
+        let pathToCardDecks = NSBundle.mainBundle().pathForResource("CardDecks", ofType: "plist")!;
+        let cardDecks = NSDictionary(contentsOfFile: pathToCardDecks)
+        var defaultCardDecks = cardDecks["default"] as Array<String>
         
         // Settings
-        self.numberOfCards = 9
+        self.numberOfCards = defaultCardDecks.count
         
         // Calculate the board width:
         var boardWidth: CGFloat = (CGFloat(numberOfCards) * (cardWidth + cardMargin))
@@ -99,10 +103,11 @@ class Main: UIViewController, UIScrollViewDelegate {
         board.contentSize = CGSize(width: boardWidth, height: cardHeight)
         board.center.x = boardContainer.center.x
         
-        for index in 0...numberOfCards - 1 {
+        
+        // Iterate through plist
+        for (index, cardValue) in enumerate(defaultCardDecks) {
             // Instantiate new CardView
-            var card = CardView(index: index, height: cardHeight, width: cardWidth,
-                margin: cardMargin, text: String(index + 1))
+            var card = CardView(index: index, height: cardHeight, width: cardWidth, margin: cardMargin, text: cardValue)
             
             card.frame.origin.x = (CGFloat(4) * cardWidth) + CGFloat(4) * cardMargin + (cardMargin / 2) - 10
             
@@ -113,6 +118,9 @@ class Main: UIViewController, UIScrollViewDelegate {
             
             board.addSubview(card)
         }
+        
+        
+        
         
         boardContainer.addSubview(board)
         view.addSubview(boardContainer)
