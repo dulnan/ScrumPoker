@@ -53,6 +53,7 @@ class CardView: UIView {
         backgroundColor = style.backgroundColor
         
         if (style.shadow == true) {
+            layer.shadowPath = UIBezierPath(roundedRect: layer.bounds, cornerRadius: layer.cornerRadius).CGPath
             layer.shadowColor = UIColor.blackColor().CGColor
             layer.shadowOffset = CGSize(width: 0, height: 0)
             layer.shadowOpacity = 0.2

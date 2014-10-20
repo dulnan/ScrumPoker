@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -15,12 +15,6 @@
                             <view contentMode="scaleToFill" id="VYA-yD-bsa" userLabel="boardContainer">
                                 <rect key="frame" x="0.0" y="142" width="320" height="284"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="EMk-sK-6vR" customClass="BoardUIScrollView" customModule="ScrumPoker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </scrollView>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" id="kDR-OQ-HVn" userLabel="background">
@@ -31,9 +25,8 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="boardContainer" destination="VYA-yD-bsa" id="YaB-Lr-3Bx"/>
                         <outlet property="background" destination="kDR-OQ-HVn" id="kv5-G9-cGz"/>
-                        <outlet property="board" destination="EMk-sK-6vR" id="ePp-1m-xfZ"/>
+                        <outlet property="boardContainer" destination="VYA-yD-bsa" id="YaB-Lr-3Bx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
