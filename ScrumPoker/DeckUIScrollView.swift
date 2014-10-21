@@ -26,31 +26,30 @@ class DeckUIScrollView: UIScrollView, UIScrollViewDelegate {
         
         calculateGlobalVariables()
         
-        self.frame = CGRect(x: 0, y: 0, width: cardWidth + cardMargin, height: cardHeight)
+        self.frame = CGRect(x: 0, y: 0, width: cardWidth, height: cardHeight)
+        self.pagingEnabled = true
+        self.clipsToBounds = false
+        self.showsHorizontalScrollIndicator = true
+        self.center = super.center
+        self.userInteractionEnabled = false
+        
+        self.contentSize = CGSize(width: cardWidth, height: cardHeight)
         
         createCards()
         
         self.backgroundColor = UIColor.redColor()
         
         
-        UIView.animateWithDuration(1, delay: 0.6, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
-            self.slideInCards()
-        }, completion: { success in
-            UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
-                    self.transform = CGAffineTransformMakeScale(1, 1)
-                }, nil)
-        })
-        
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    /*
     override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
         return true
     }
-    
+    */
     func scrollViewDidScroll(scrollView: DeckUIScrollView) {
         var offset = (self.contentOffset.x - (2 * self.contentOffset.x)) / 4
         //background.transform = CGAffineTransformMakeTranslation(offset, 0)
@@ -66,6 +65,19 @@ class DeckUIScrollView: UIScrollView, UIScrollViewDelegate {
     
     
     
+    func setMode(mode: String) {
+        if (mode == "open") {
+            UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
+                self.slideInCards()
+            }, nil)
+            var boardWidth: CGFloat = (CGFloat(numberOfCards) * (cardWidth + cardMargin))
+            self.contentSize = CGSize(width: boardWidth, height: cardHeight)
+            self.userInteractionEnabled = true
+        } else {
+            // close
+        }
+    }
+    
     
     
     /*
@@ -80,24 +92,13 @@ class DeckUIScrollView: UIScrollView, UIScrollViewDelegate {
         // Settings
         self.numberOfCards = defaultCardDecks.count
         
-        // Calculate the board width:
-        var boardWidth: CGFloat = (CGFloat(numberOfCards) * (cardWidth + cardMargin))
-        
-        
-        // Init the board
-        self.pagingEnabled = true
-        self.clipsToBounds = false
-        self.showsHorizontalScrollIndicator = false
-        self.contentSize = CGSize(width: boardWidth, height: cardHeight)
-        self.center = super.center
-        
-        
         // Iterate through plist
         for (index, cardValue) in enumerate(defaultCardDecks) {
             // Instantiate new CardView
             var card = CardView(index: index, height: cardHeight, width: cardWidth, margin: cardMargin, text: cardValue)
             
-            card.frame.origin.x = (CGFloat(index) * cardWidth) + CGFloat(index) * cardMargin + (cardMargin / 2) - 10
+            //card.frame.origin.x = (CGFloat(4) * cardWidth) + CGFloat(4) * cardMargin + (cardMargin / 2) - 10
+            card.frame.origin.x = 0
             
             // Add a TapGestureRecognizer to the card
             var tapGesture = UITapGestureRecognizer(target: self, action: "handleCardTap:")
