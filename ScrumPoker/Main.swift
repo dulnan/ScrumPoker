@@ -13,6 +13,7 @@ class Main: UIViewController {
     @IBOutlet weak var background: UIImageView!
     @IBAction func goFullscreen(sender: AnyObject) {
         deck.setMode("open")
+        board.scrollEnabled = false
         //board.contentSize.width = screenWidth
     }
 
@@ -29,19 +30,21 @@ class Main: UIViewController {
         screenWidth = CGFloat(UIScreen.mainScreen().applicationFrame.size.width)
         screenHeight = CGFloat(UIScreen.mainScreen().applicationFrame.size.height)
         
-        board = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 500))
+        board = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight / 2))
         board.backgroundColor = UIColor.blueColor()
         
         
         board.pagingEnabled = true
+        board.clipsToBounds = false
         board.userInteractionEnabled = true
         
-        board.contentSize = CGSize(width: screenWidth * 6, height: 500)
+        board.contentSize = CGSize(width: screenWidth, height: (screenHeight / 2) * 6)
         
         
         for index in 0...5 {
             deck = DeckUIScrollView()
-            deck.frame.origin.x = CGFloat(index) * screenWidth
+            deck.frame.origin.y = CGFloat(index) * screenHeight / 2
+            deck.center.x = board.center.x
             board.addSubview(deck)
         }
         

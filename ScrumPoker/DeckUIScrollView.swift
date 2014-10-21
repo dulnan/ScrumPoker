@@ -26,7 +26,7 @@ class DeckUIScrollView: UIScrollView, UIScrollViewDelegate {
         
         calculateGlobalVariables()
         
-        self.frame = CGRect(x: 0, y: 0, width: cardWidth, height: cardHeight)
+        self.frame = CGRect(x: 0, y: 0, width: cardWidth + cardMargin, height: cardHeight)
         self.pagingEnabled = true
         self.clipsToBounds = false
         self.showsHorizontalScrollIndicator = true
@@ -34,6 +34,9 @@ class DeckUIScrollView: UIScrollView, UIScrollViewDelegate {
         self.userInteractionEnabled = false
         
         self.contentSize = CGSize(width: cardWidth, height: cardHeight)
+        
+        //self.frame.origin.x = self.frame.size.width * 4
+        NSLog((self.frame.size.width * 4).description)
         
         createCards()
         
@@ -45,11 +48,11 @@ class DeckUIScrollView: UIScrollView, UIScrollViewDelegate {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /*
+    
     override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
         return true
     }
-    */
+    
     func scrollViewDidScroll(scrollView: DeckUIScrollView) {
         var offset = (self.contentOffset.x - (2 * self.contentOffset.x)) / 4
         //background.transform = CGAffineTransformMakeTranslation(offset, 0)
@@ -63,6 +66,15 @@ class DeckUIScrollView: UIScrollView, UIScrollViewDelegate {
         
     }
     
+    
+    
+    func calculateGlobalVariables() {
+        screenWidth = CGFloat(UIScreen.mainScreen().applicationFrame.size.width)
+        screenHeight = CGFloat(UIScreen.mainScreen().applicationFrame.size.height)
+        cardMargin = 20
+        cardWidth = (screenWidth / 2) + cardMargin
+        cardHeight = cardWidth * 1.5
+    }
     
     
     func setMode(mode: String) {
@@ -97,8 +109,7 @@ class DeckUIScrollView: UIScrollView, UIScrollViewDelegate {
             // Instantiate new CardView
             var card = CardView(index: index, height: cardHeight, width: cardWidth, margin: cardMargin, text: cardValue)
             
-            //card.frame.origin.x = (CGFloat(4) * cardWidth) + CGFloat(4) * cardMargin + (cardMargin / 2) - 10
-            card.frame.origin.x = 0
+            card.frame.origin.x = (CGFloat(4) * cardWidth) + CGFloat(4) * cardMargin + (cardMargin / 2) - 10
             
             // Add a TapGestureRecognizer to the card
             var tapGesture = UITapGestureRecognizer(target: self, action: "handleCardTap:")
@@ -170,17 +181,6 @@ class DeckUIScrollView: UIScrollView, UIScrollViewDelegate {
             }, nil)
     }
     
-    
-    
-    
-    
-    func calculateGlobalVariables() {
-        screenWidth = CGFloat(UIScreen.mainScreen().applicationFrame.size.width)
-        screenHeight = CGFloat(UIScreen.mainScreen().applicationFrame.size.height)
-        cardMargin = 20
-        cardWidth = (screenWidth / 2) + cardMargin
-        cardHeight = cardWidth * 1.5
-    }
     
     
     
